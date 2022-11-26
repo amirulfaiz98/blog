@@ -10,11 +10,11 @@
                 <div class="card-body">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" value="{{ $blog->title }}" name="title" placeholder="Enter title">
+                            <input type="text" class="form-control" value="{{ $blog->title }}" name="title" placeholder="Enter title" readonly>
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" value="{{ $blog->content }}" name="content" rows="3"></textarea>
+                            <textarea class="form-control" value="{{ $blog->content }}" name="content" rows="3" readonly></textarea>
                         </div>
                         <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Back</a>
                 </div>

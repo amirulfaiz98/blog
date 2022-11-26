@@ -33,6 +33,7 @@
                         <td>{{ $blog->updated_at }}</td>
                         <td>
                             <a href="{{ route('blogs.show', $blog) }}" class="btn btn-primary">Show</a>
+                            <a href="{{ route('blogs.edit', $blog) }}" class="btn btn-secondary">Edit</a>
                         </td>
                       </tr>
                       @endforeach
