@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -16,7 +16,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" value="{{ $blog->content }}" name="content" rows="3"></textarea>
+                            <textarea class="form-control" name="content" rows="3">{{ $blog->content }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Cancel</a>

@@ -9,9 +9,13 @@ use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $blogs = Blog::paginate(5);
+        if ($request->has('search')) {
+            $blogs = Blog::where('title', 'like', '%' . $request->search . '%')->paginate(5);
+        } else {
+            $blogs = Blog::paginate(5);
+        }
         return view('blogs.index', compact('blogs'));
     }
 
@@ -69,7 +73,9 @@ class BlogController extends Controller
             Storage::disk('public')->delete($blog->attachment);
         }
         $blog->delete();
-        
+
         return redirect()->route('blogs.index')->with('warning', 'Blog deleted successfully');
     }
+
+    
 }

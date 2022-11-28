@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" value="{{ $blog->content }}" name="content" rows="3" readonly></textarea>
+                            <textarea class="form-control"  name="content" rows="3" readonly>{{ $blog->content }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="attachment">Attachment</label>

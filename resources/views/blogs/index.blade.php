@@ -1,12 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Index') }}
-                    <a href="{{ route('blogs.create') }}" class="btn btn-primary" style="float:right;">Create</a>
+                <div class="card-header">{{ __('Blog Index') }}
+                    <div class="float-right">
+                        <form action="{{ route('blogs.index') }}" method="GET">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                                aria-describedby="btnNavbarSearch" name="search"value="{{ request()->get('search') }}">
+                                    <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                        <a href="{{ route('blogs.create') }}" class="btn btn-primary">Create</a>
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -40,7 +49,7 @@
                       @endforeach
                     </tbody>
                   </table>
-                  {{ $blogs->links() }}
+                  {{ $blogs->appends(['search' => request()->get('search')])->links() }}
                 </div>
             </div>
         </div>
